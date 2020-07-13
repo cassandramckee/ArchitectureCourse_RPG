@@ -14,11 +14,18 @@ namespace a_player
             floor.transform.localScale = new Vector3(50f, 0.1f, 50f);
             floor.transform.position = Vector3.zero;
 
-            var player = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-            player.AddComponent<CharacterController>();
-            player.AddComponent<Player>();
-
+            var playerGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+            playerGameObject.transform.position = new Vector3(0f, 1.3f, 0f);
+            playerGameObject.AddComponent<CharacterController>();
+            
+            Player player = playerGameObject.AddComponent<Player>();
+            player.PlayerInput.Vertical = 1;
+            
+            float startingZPosition = player.transform.position.z;
             yield return new WaitForSeconds(5f);
+            float endingZPosition = player.transform.position.z;
+            
+            Assert.Greater(endingZPosition, startingZPosition);
         }
     }
 }
