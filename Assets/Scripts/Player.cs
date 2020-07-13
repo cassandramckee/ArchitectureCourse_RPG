@@ -5,17 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private CharacterController _characterController;
-    private PlayerInput _playerInput;
+    public PlayerInput PlayerInput { get; } = new PlayerInput();
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
-        _playerInput = new PlayerInput();
+        // PlayerInput = new PlayerInput();
     }
 
     private void Update()
     {
-        Vector3 movementInput = new Vector3(0f, 0f, _playerInput.Vertical);
+        Vector3 movementInput = new Vector3(0f, 0f, PlayerInput.Vertical);
         Vector3 movement = transform.rotation * movementInput;
         _characterController.SimpleMove(movement);
     }
@@ -23,5 +23,5 @@ public class Player : MonoBehaviour
 
 public class PlayerInput
 {
-    public float Vertical => Input.GetAxis("Vertical");
+    public float Vertical { get; set; } // => Input.GetAxis("Vertical");
 }
