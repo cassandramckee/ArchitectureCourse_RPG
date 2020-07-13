@@ -1,10 +1,10 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace a_player
+namespace Tests
 {
     public class a_moving_cube
     {
@@ -31,4 +31,4 @@ namespace a_player
 
         }
     }
-}*
+}

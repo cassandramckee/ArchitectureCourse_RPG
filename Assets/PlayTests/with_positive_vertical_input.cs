@@ -15,9 +15,9 @@ namespace a_player
             floor.transform.position = Vector3.zero;
 
             var playerGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-            playerGameObject.transform.position = new Vector3(0f, 1.3f, 0f);
             playerGameObject.AddComponent<CharacterController>();
-            
+            playerGameObject.transform.position = new Vector3(0f, 1.5f, 0f);
+
             Player player = playerGameObject.AddComponent<Player>();
             player.PlayerInput.Vertical = 1;
             
