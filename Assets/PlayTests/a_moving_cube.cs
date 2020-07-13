@@ -22,13 +22,11 @@ namespace Tests
             {
                 // Act
                 cube.transform.position += Vector3.forward;
-                yield return null; // Normally wouldn't do that, but we want to see it
+                yield return null; 
                 
                 // Assert
                 Assert.AreEqual(i+1, cube.transform.position.z);
             }
-            
-
         }
     }
 }

@@ -1,12 +1,16 @@
 using System.Collections;
+using NSubstitute;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
 namespace a_player
 {
+    // TODO: Rename class so that it  represents most basic movement
     public class with_positive_vertical_input
     {
+        
+        
         [UnityTest]
         public IEnumerator moves_forward()
         {
@@ -19,13 +23,20 @@ namespace a_player
             playerGameObject.transform.position = new Vector3(0f, 1.5f, 0f);
 
             Player player = playerGameObject.AddComponent<Player>();
-            player.PlayerInput.Vertical = 1;
+            var testPlayerInput = Substitute.For<IPlayerInput>();
+            player.PlayerInput = testPlayerInput;
+
+            testPlayerInput.Vertical.Returns(1f);
+            testPlayerInput.Horizontal.Returns(1f);
             
             float startingZPosition = player.transform.position.z;
-            yield return new WaitForSeconds(5f);
+            float startingXPosition = player.transform.position.x;
+            yield return new WaitForSeconds(1f);
             float endingZPosition = player.transform.position.z;
-            
+            float endingXPosition = player.transform.position.x;
+
             Assert.Greater(endingZPosition, startingZPosition);
+            Assert.Greater(endingXPosition, startingXPosition);
         }
     }
 }
