@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        _mover = new NavmeshMover(this);
+        _mover = new Mover(this);
         _rotator = new Rotator(this);
         _characterController = GetComponent<CharacterController>();
     }
