@@ -11,7 +11,7 @@ namespace a_player
     public static class Helpers
     {
         // If we need to clean the slate, often better to just reload the scene
-        public static IEnumerator LoadMovementTests()
+        public static IEnumerator LoadMovementTestsScene()
         {
             var operation = SceneManager.LoadSceneAsync("MovementTests");
             while (operation.isDone == false)
@@ -46,7 +46,7 @@ namespace a_player
         [UnityTest]
         public IEnumerator moves_forward()
         {
-            yield return Helpers.LoadMovementTests();
+            yield return Helpers.LoadMovementTestsScene();
 
             var player = Helpers.GetPlayer();
 
@@ -69,7 +69,7 @@ namespace a_player
         [UnityTest]
         public IEnumerator moves_back()
         {
-            yield return Helpers.LoadMovementTests();
+            yield return Helpers.LoadMovementTestsScene();
 
             var player = Helpers.GetPlayer();
 
@@ -92,7 +92,7 @@ namespace a_player
         [UnityTest]
         public IEnumerator turns_left()
         {
-            yield return Helpers.LoadMovementTests();
+            yield return Helpers.LoadMovementTestsScene();
             var player = Helpers.GetPlayer();
 
             var originalRotation = player.transform.rotation;
@@ -111,7 +111,7 @@ namespace a_player
         [UnityTest]
         public IEnumerator turns_right()
         {
-            yield return Helpers.LoadMovementTests();
+            yield return Helpers.LoadMovementTestsScene();
             var player = Helpers.GetPlayer();
 
             var originalRotation = player.transform.rotation;
