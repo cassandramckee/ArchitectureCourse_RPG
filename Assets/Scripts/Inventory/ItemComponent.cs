@@ -6,18 +6,7 @@ public abstract class ItemComponent : MonoBehaviour
 {
     protected float _nextUseTime; // Defaults to 0
 
-    private bool CanUse => Time.time >= _nextUseTime;
+    public bool CanUse => Time.time >= _nextUseTime;
     
-    protected abstract void Use();
-
-
-    private void Update()
-    {
-        if (CanUse && Input.GetKeyDown(KeyCode.Space))
-        {
-            Use();
-            // adsasd
-            _nextUseTime = Time.time + 1f;
-        }
-    }
+    public abstract void Use();
 }

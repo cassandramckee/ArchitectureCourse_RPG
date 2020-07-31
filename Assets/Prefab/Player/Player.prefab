@@ -95,10 +95,11 @@ GameObject:
   - component: {fileID: 2615124239180323449}
   - component: {fileID: 2615124239180323448}
   - component: {fileID: 2615124239180323447}
-  - component: {fileID: 2615124239180323446}
-  - component: {fileID: 2615124239180323445}
   - component: {fileID: 2615124239180323451}
+  - component: {fileID: 2615124239180323445}
+  - component: {fileID: 2615124239180323446}
   - component: {fileID: 2615124239180323452}
+  - component: {fileID: 5205427989878861546}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -183,36 +184,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2615124239180323446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615124239180323444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a04e155e480d843b00e844eddecafc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!143 &2615124239180323445
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615124239180323444}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &2615124239180323451
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -235,6 +206,36 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!143 &2615124239180323445
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615124239180323444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2615124239180323446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615124239180323444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a04e155e480d843b00e844eddecafc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2615124239180323452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +249,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rightHand: {fileID: 2615124239249457339}
+--- !u!114 &5205427989878861546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615124239180323444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207da448f9204972bc067e232153e62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2615124239249457338
 GameObject:
   m_ObjectHideFlags: 0
