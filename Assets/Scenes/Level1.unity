@@ -498,6 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7d958570eaad04eac0d46067d24fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _crosshairMode: 0
   _actions: []
 --- !u!65 &960799808
 BoxCollider:
@@ -654,6 +655,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3896993384591213881, guid: 856a207629b6583409b6065a67030733,
+        type: 3}
+      propertyPath: _crosshairMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1050331236878336967, guid: 856a207629b6583409b6065a67030733,
         type: 3}
       propertyPath: m_LocalPosition.x

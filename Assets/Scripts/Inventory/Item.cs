@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class Item : MonoBehaviour
 {
+    [SerializeField] private CrosshairMode _crosshairMode;
     [SerializeField] private UseAction[] _actions = new UseAction[0];
     // A getter that's a way of preventing others from editing actions in code.
+    // aka a read only property
     public UseAction[] Actions => _actions;
+    public CrosshairMode CrosshairMode => _crosshairMode;
     
     private bool _wasPickedUp;
     

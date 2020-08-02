@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public event Action<Item> ActiveItemChanged;
+    
     [SerializeField] private Transform _rightHand;
 
     private List<Item> _items = new List<Item>();
@@ -35,5 +38,10 @@ public class Inventory : MonoBehaviour
         item.transform.localPosition = Vector3.zero;
         item.transform.localRotation = Quaternion.identity;
         ActiveItem = item;
+        // If ActiveItem is not null (the ? part) then invoke the event and pass in what the active item is
+        // The ? is similar to "if (ActiveItem != null)"
+        ActiveItemChanged?.Invoke(ActiveItem);
     }
+
+
 }
