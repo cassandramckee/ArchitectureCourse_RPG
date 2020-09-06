@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    // Our events
     public event Action<Item> ActiveItemChanged;
+    public event Action<Item> ItemPickedUp;
+
     
     [SerializeField] private Transform _rightHand;
 
@@ -24,6 +27,7 @@ public class Inventory : MonoBehaviour
     {
         _items.Add(item);
         item.transform.SetParent(_itemRoot);
+        ItemPickedUp?.Invoke(item);
 
         Equip(item);
     }

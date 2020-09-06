@@ -5,11 +5,16 @@ public class Item : MonoBehaviour
 {
     [SerializeField] private CrosshairDefinition _crosshairDefinition;
     [SerializeField] private UseAction[] _actions = new UseAction[0];
+    [SerializeField] private Sprite _icon;
+    
     // A getter that's a way of preventing others from editing actions in code.
     // aka a read only property
-    public UseAction[] Actions => _actions;
     public CrosshairDefinition CrosshairDefinition => _crosshairDefinition;
-    
+    public UseAction[] Actions => _actions;
+    public Sprite Icon => _icon;
+
+
+
     private bool _wasPickedUp;
     
     

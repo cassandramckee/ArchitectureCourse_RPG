@@ -500,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _crosshairDefinition: {fileID: 0}
   _actions: []
+  _icon: {fileID: 0}
 --- !u!65 &960799808
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -655,6 +656,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3896993384591213881, guid: 856a207629b6583409b6065a67030733,
+        type: 3}
+      propertyPath: _icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d5e2f399bb72e843bea65f2a56adb8f,
+        type: 3}
     - target: {fileID: 1050331236878336967, guid: 856a207629b6583409b6065a67030733,
         type: 3}
       propertyPath: m_LocalPosition.x
