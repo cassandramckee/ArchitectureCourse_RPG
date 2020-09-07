@@ -16,12 +16,14 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        // TODO: Use events and PlayerInput instead for this
+        if (Input.GetKeyDown(KeyCode.Alpha8))
             _mover = new Mover(this);
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
             _mover = new NavmeshMover(this);
         
         _mover.Tick();
         _rotator.Tick();
+        PlayerInput.Tick();
     }
 }

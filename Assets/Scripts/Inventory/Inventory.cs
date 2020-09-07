@@ -32,7 +32,7 @@ public class Inventory : MonoBehaviour
         Equip(item);
     }
 
-    private void Equip(Item item)
+    public void Equip(Item item)
     {
         // Likely puts item in right spot, fires a bunch of call backs, etc. 
         Debug.Log($"Equipped Item {item.gameObject.name}");
