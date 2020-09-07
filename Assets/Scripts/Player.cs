@@ -12,16 +12,20 @@ public class Player : MonoBehaviour
         _mover = new Mover(this);
         _rotator = new Rotator(this);
         _characterController = GetComponent<CharacterController>();
+
+        PlayerInput.MoveModeTogglePressed += MoveModeTogglePressed;
+    }
+
+    private void MoveModeTogglePressed()
+    {
+        if (_mover is NavmeshMover)
+            _mover = new Mover(this);
+        else
+            _mover = new NavmeshMover(this);
     }
 
     private void Update()
     {
-        // TODO: Use events and PlayerInput instead for this
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-            _mover = new Mover(this);
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-            _mover = new NavmeshMover(this);
-        
         _mover.Tick();
         _rotator.Tick();
         PlayerInput.Tick();

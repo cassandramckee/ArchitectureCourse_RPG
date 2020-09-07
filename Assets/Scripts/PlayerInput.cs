@@ -3,14 +3,20 @@ using UnityEngine;
 
 public class PlayerInput : IPlayerInput
 {
+    public event Action<int> HotkeyPressed;
+    public event Action MoveModeTogglePressed;
+
     // Note: Unity's new input system probably takes care of a bunch of this
     public float Vertical => Input.GetAxis("Vertical");
     public float Horizontal => Input.GetAxis("Horizontal");
     public float MouseX => Input.GetAxis("Mouse X");
-    public event Action<int> HotkeyPressed;
+
 
     public void Tick()
     {
+        if (MoveModeTogglePressed != null && Input.GetKeyDown(KeyCode.Minus))
+            MoveModeTogglePressed();
+        
         // Short circuit if no HotKeyDown event registered
         if (HotkeyPressed == null)
             return;
