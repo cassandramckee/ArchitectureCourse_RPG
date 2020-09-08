@@ -9,19 +9,25 @@ namespace a_player
 {
     public class moving_into_an_item
     {
-        [UnityTest]
-        public IEnumerator picks_up_and_equips_item()
-        {
+        private Player player;
+        private Item item;
+
+        [UnitySetUp]
+        public IEnumerator init() {
             yield return Helpers.LoadItemTestsScene();
-            var player = Helpers.GetPlayer();
+            player = Helpers.GetPlayer();
             
             player.PlayerInput.Vertical.Returns(1f);
 
-            Item item = Object.FindObjectOfType<Item>();
-
+            item = Object.FindObjectOfType<Item>();
+        }
+        
+        [UnityTest]
+        public IEnumerator picks_up_and_equips_item()
+        {
             Assert.AreNotSame(item, player.GetComponent<Inventory>().ActiveItem);
             
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             
             // GetComponent will probably become a field later since we will want
             // to get items a lot.
@@ -31,27 +37,37 @@ namespace a_player
         [UnityTest]
         public IEnumerator changes_crosshair_to_item_crosshair()
         {
-            // We're getting the crosshair UI object and comparing it to the crosshair
-            // on the only item in the scene, first making sure they're different,
-            // then making sure they're the same once picked up.
-            yield return Helpers.LoadItemTestsScene();
-            
-            var player = Helpers.GetPlayer();
             var crosshair = Object.FindObjectOfType<Crosshair>();
             
-            Item item = Object.FindObjectOfType<Item>();
-
             // Do our check to insert that the crosshairs are different
             Assert.AreNotSame(item.CrosshairDefinition.Sprite, crosshair.GetComponent<Image>().sprite);
 
             // Move item to the player
             item.transform.position = player.transform.position;
             
-            // Wait until end the next frame starts rendering
-            yield return null;
+            // We need to wait for collision processing to happen
+            yield return new WaitForFixedUpdate();
             
             // Now do our check that the crosshairs are the same
             Assert.AreEqual(item.CrosshairDefinition.Sprite, crosshair.GetComponent<Image>().sprite);
+        }
+        
+        [UnityTest]
+        public IEnumerator changes_slot_1_icon_to_match_item_icon()
+        {
+            var hotbar = Object.FindObjectOfType<Hotbar>();
+            var slotOne = hotbar.GetComponentInChildren<Slot>();
+            
+            // Do our check to insert that the crosshairs are different
+            Assert.AreNotSame(item.Icon, slotOne.IconImage.sprite);
+
+            // Move item to the player
+            item.transform.position = player.transform.position;
+            // We need to wait for collision processing to happen
+            yield return new WaitForFixedUpdate();
+            
+            // Now do our check that the crosshairs are the same
+            Assert.AreEqual(item.Icon, slotOne.IconImage.sprite);
         }
     }
 }

@@ -35,6 +35,9 @@ public class Item : MonoBehaviour
         // This makes it so that when we add an item we don't have to always
         // make sure that "Is Trigger" is always checked. Makes this automatic
         var collider = GetComponent<Collider>();
-        collider.isTrigger = true;
+        
+        // Fix potential flashing of icon in the inspector
+        if (collider.isTrigger == false)
+            collider.isTrigger = true;
     }
 }
